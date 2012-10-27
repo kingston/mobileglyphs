@@ -1,0 +1,302 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D06300D6163CA1F500A404FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06300D5163CA1F500A404FB /* UIKit.framework */; };
+		D06300D8163CA1F500A404FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06300D7163CA1F500A404FB /* Foundation.framework */; };
+		D06300DA163CA1F500A404FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06300D9163CA1F500A404FB /* CoreGraphics.framework */; };
+		D06300E0163CA1F500A404FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D06300DE163CA1F500A404FB /* InfoPlist.strings */; };
+		D06300E2163CA1F500A404FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D06300E1163CA1F500A404FB /* main.m */; };
+		D06300E6163CA1F500A404FB /* MGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D06300E5163CA1F500A404FB /* MGAppDelegate.m */; };
+		D06300E8163CA1F500A404FB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D06300E7163CA1F500A404FB /* Default.png */; };
+		D06300EA163CA1F500A404FB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D06300E9163CA1F500A404FB /* Default@2x.png */; };
+		D06300EC163CA1F500A404FB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D06300EB163CA1F500A404FB /* Default-568h@2x.png */; };
+		D06300EF163CA1F500A404FB /* MGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D06300EE163CA1F500A404FB /* MGViewController.m */; };
+		D06300F2163CA1F500A404FB /* MGViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06300F0163CA1F500A404FB /* MGViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D06300D1163CA1F500A404FB /* MobileGlyphs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileGlyphs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D06300D5163CA1F500A404FB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D06300D7163CA1F500A404FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D06300D9163CA1F500A404FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D06300DD163CA1F500A404FB /* MobileGlyphs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MobileGlyphs-Info.plist"; sourceTree = "<group>"; };
+		D06300DF163CA1F500A404FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D06300E1163CA1F500A404FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D06300E3163CA1F500A404FB /* MobileGlyphs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MobileGlyphs-Prefix.pch"; sourceTree = "<group>"; };
+		D06300E4163CA1F500A404FB /* MGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGAppDelegate.h; sourceTree = "<group>"; };
+		D06300E5163CA1F500A404FB /* MGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGAppDelegate.m; sourceTree = "<group>"; };
+		D06300E7163CA1F500A404FB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D06300E9163CA1F500A404FB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		D06300EB163CA1F500A404FB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D06300ED163CA1F500A404FB /* MGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGViewController.h; sourceTree = "<group>"; };
+		D06300EE163CA1F500A404FB /* MGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGViewController.m; sourceTree = "<group>"; };
+		D06300F1163CA1F500A404FB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MGViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D06300CE163CA1F500A404FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D06300D6163CA1F500A404FB /* UIKit.framework in Frameworks */,
+				D06300D8163CA1F500A404FB /* Foundation.framework in Frameworks */,
+				D06300DA163CA1F500A404FB /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D06300C6163CA1F500A404FB = {
+			isa = PBXGroup;
+			children = (
+				D06300DB163CA1F500A404FB /* MobileGlyphs */,
+				D06300D4163CA1F500A404FB /* Frameworks */,
+				D06300D2163CA1F500A404FB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D06300D2163CA1F500A404FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D06300D1163CA1F500A404FB /* MobileGlyphs.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D06300D4163CA1F500A404FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D06300D5163CA1F500A404FB /* UIKit.framework */,
+				D06300D7163CA1F500A404FB /* Foundation.framework */,
+				D06300D9163CA1F500A404FB /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D06300DB163CA1F500A404FB /* MobileGlyphs */ = {
+			isa = PBXGroup;
+			children = (
+				D06300E4163CA1F500A404FB /* MGAppDelegate.h */,
+				D06300E5163CA1F500A404FB /* MGAppDelegate.m */,
+				D06300ED163CA1F500A404FB /* MGViewController.h */,
+				D06300EE163CA1F500A404FB /* MGViewController.m */,
+				D06300F0163CA1F500A404FB /* MGViewController.xib */,
+				D06300DC163CA1F500A404FB /* Supporting Files */,
+			);
+			path = MobileGlyphs;
+			sourceTree = "<group>";
+		};
+		D06300DC163CA1F500A404FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D06300DD163CA1F500A404FB /* MobileGlyphs-Info.plist */,
+				D06300DE163CA1F500A404FB /* InfoPlist.strings */,
+				D06300E1163CA1F500A404FB /* main.m */,
+				D06300E3163CA1F500A404FB /* MobileGlyphs-Prefix.pch */,
+				D06300E7163CA1F500A404FB /* Default.png */,
+				D06300E9163CA1F500A404FB /* Default@2x.png */,
+				D06300EB163CA1F500A404FB /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D06300D0163CA1F500A404FB /* MobileGlyphs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D06300F5163CA1F500A404FB /* Build configuration list for PBXNativeTarget "MobileGlyphs" */;
+			buildPhases = (
+				D06300CD163CA1F500A404FB /* Sources */,
+				D06300CE163CA1F500A404FB /* Frameworks */,
+				D06300CF163CA1F500A404FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MobileGlyphs;
+			productName = MobileGlyphs;
+			productReference = D06300D1163CA1F500A404FB /* MobileGlyphs.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D06300C8163CA1F500A404FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MG;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = abikt;
+			};
+			buildConfigurationList = D06300CB163CA1F500A404FB /* Build configuration list for PBXProject "MobileGlyphs" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D06300C6163CA1F500A404FB;
+			productRefGroup = D06300D2163CA1F500A404FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D06300D0163CA1F500A404FB /* MobileGlyphs */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D06300CF163CA1F500A404FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D06300E0163CA1F500A404FB /* InfoPlist.strings in Resources */,
+				D06300E8163CA1F500A404FB /* Default.png in Resources */,
+				D06300EA163CA1F500A404FB /* Default@2x.png in Resources */,
+				D06300EC163CA1F500A404FB /* Default-568h@2x.png in Resources */,
+				D06300F2163CA1F500A404FB /* MGViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D06300CD163CA1F500A404FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D06300E2163CA1F500A404FB /* main.m in Sources */,
+				D06300E6163CA1F500A404FB /* MGAppDelegate.m in Sources */,
+				D06300EF163CA1F500A404FB /* MGViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D06300DE163CA1F500A404FB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D06300DF163CA1F500A404FB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D06300F0163CA1F500A404FB /* MGViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D06300F1163CA1F500A404FB /* en */,
+			);
+			name = MGViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D06300F3163CA1F500A404FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		D06300F4163CA1F500A404FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D06300F6163CA1F500A404FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobileGlyphs/MobileGlyphs-Prefix.pch";
+				INFOPLIST_FILE = "MobileGlyphs/MobileGlyphs-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D06300F7163CA1F500A404FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobileGlyphs/MobileGlyphs-Prefix.pch";
+				INFOPLIST_FILE = "MobileGlyphs/MobileGlyphs-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D06300CB163CA1F500A404FB /* Build configuration list for PBXProject "MobileGlyphs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D06300F3163CA1F500A404FB /* Debug */,
+				D06300F4163CA1F500A404FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D06300F5163CA1F500A404FB /* Build configuration list for PBXNativeTarget "MobileGlyphs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D06300F6163CA1F500A404FB /* Debug */,
+				D06300F7163CA1F500A404FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D06300C8163CA1F500A404FB /* Project object */;
+}
