@@ -36,6 +36,7 @@
 		D063012A163CA31E00A404FB /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0630129163CA31E00A404FB /* GLKit.framework */; };
 		D063012C163CA32200A404FB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D063012B163CA32200A404FB /* OpenGLES.framework */; };
 		D063012F163CA34300A404FB /* GLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D063012E163CA34300A404FB /* GLViewController.m */; };
+		D0630132163CA3F300A404FB /* MGGlyphEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0630131163CA3F300A404FB /* MGGlyphEditorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,8 @@
 		D063012B163CA32200A404FB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		D063012D163CA34300A404FB /* GLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewController.h; sourceTree = "<group>"; };
 		D063012E163CA34300A404FB /* GLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLViewController.m; sourceTree = "<group>"; };
+		D0630130163CA3F300A404FB /* MGGlyphEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGGlyphEditorViewController.h; sourceTree = "<group>"; };
+		D0630131163CA3F300A404FB /* MGGlyphEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGGlyphEditorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 				D06300EE163CA1F500A404FB /* MGViewController.m */,
 				D06300F0163CA1F500A404FB /* MGViewController.xib */,
 				D06300DC163CA1F500A404FB /* Supporting Files */,
+				D0630130163CA3F300A404FB /* MGGlyphEditorViewController.h */,
+				D0630131163CA3F300A404FB /* MGGlyphEditorViewController.m */,
 			);
 			path = MobileGlyphs;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				D0630127163CA31100A404FB /* MicroUIDraggableView.m in Sources */,
 				D0630128163CA31100A404FB /* MicroUIDraggableEndpoint.m in Sources */,
 				D063012F163CA34300A404FB /* GLViewController.m in Sources */,
+				D0630132163CA3F300A404FB /* MGGlyphEditorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

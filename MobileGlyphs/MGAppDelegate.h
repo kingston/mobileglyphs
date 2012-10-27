@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class MGViewController;
+@class MGGlyphEditorViewController;
 
 @interface MGAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) MGViewController *viewController;
+@property (strong, nonatomic) MGGlyphEditorViewController *viewController;
 
 @end
