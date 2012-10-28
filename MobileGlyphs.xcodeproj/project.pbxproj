@@ -37,6 +37,11 @@
 		D063012C163CA32200A404FB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D063012B163CA32200A404FB /* OpenGLES.framework */; };
 		D063012F163CA34300A404FB /* GLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D063012E163CA34300A404FB /* GLViewController.m */; };
 		D0630132163CA3F300A404FB /* MGGlyphEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0630131163CA3F300A404FB /* MGGlyphEditorViewController.m */; };
+		D0630136163CAD1500A404FB /* MGGlyph.m in Sources */ = {isa = PBXBuildFile; fileRef = D0630135163CAD1500A404FB /* MGGlyph.m */; };
+		D0630139163CAD4400A404FB /* MGContour.m in Sources */ = {isa = PBXBuildFile; fileRef = D0630138163CAD4400A404FB /* MGContour.m */; };
+		D0630140163CAE4600A404FB /* MGContourView.m in Sources */ = {isa = PBXBuildFile; fileRef = D063013F163CAE4600A404FB /* MGContourView.m */; };
+		D0630146163CAF3500A404FB /* MGQuadraticCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = D0630145163CAF3500A404FB /* MGQuadraticCurve.m */; };
+		D0C71A18163CB96700EB554D /* MGCurvePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C71A17163CB96700EB554D /* MGCurvePoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +99,16 @@
 		D063012E163CA34300A404FB /* GLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLViewController.m; sourceTree = "<group>"; };
 		D0630130163CA3F300A404FB /* MGGlyphEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGGlyphEditorViewController.h; sourceTree = "<group>"; };
 		D0630131163CA3F300A404FB /* MGGlyphEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGGlyphEditorViewController.m; sourceTree = "<group>"; };
+		D0630134163CAD1500A404FB /* MGGlyph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGGlyph.h; sourceTree = "<group>"; };
+		D0630135163CAD1500A404FB /* MGGlyph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGGlyph.m; sourceTree = "<group>"; };
+		D0630137163CAD4400A404FB /* MGContour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGContour.h; sourceTree = "<group>"; };
+		D0630138163CAD4400A404FB /* MGContour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGContour.m; sourceTree = "<group>"; };
+		D063013E163CAE4500A404FB /* MGContourView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGContourView.h; sourceTree = "<group>"; };
+		D063013F163CAE4600A404FB /* MGContourView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGContourView.m; sourceTree = "<group>"; };
+		D0630144163CAF3500A404FB /* MGQuadraticCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGQuadraticCurve.h; sourceTree = "<group>"; };
+		D0630145163CAF3500A404FB /* MGQuadraticCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGQuadraticCurve.m; sourceTree = "<group>"; };
+		D0C71A16163CB96700EB554D /* MGCurvePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGCurvePoint.h; sourceTree = "<group>"; };
+		D0C71A17163CB96700EB554D /* MGCurvePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGCurvePoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +159,7 @@
 		D06300DB163CA1F500A404FB /* MobileGlyphs */ = {
 			isa = PBXGroup;
 			children = (
+				D0630133163CACF700A404FB /* Glyph */,
 				D063012D163CA34300A404FB /* GLViewController.h */,
 				D063012E163CA34300A404FB /* GLViewController.m */,
 				D0630108163CA30500A404FB /* Views */,
@@ -187,6 +203,8 @@
 				D0630100163CA2E600A404FB /* GLLine.m */,
 				D0630101163CA2E600A404FB /* GLQuad.h */,
 				D0630102163CA2E600A404FB /* GLQuad.m */,
+				D0630144163CAF3500A404FB /* MGQuadraticCurve.h */,
+				D0630145163CAF3500A404FB /* MGQuadraticCurve.m */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -216,8 +234,23 @@
 				D063011C163CA31100A404FB /* MicroUIDraggableEndpoint.m */,
 				D063011D163CA31100A404FB /* MicroUIDraggableDelegate.h */,
 				D063011E163CA31100A404FB /* MicroUIButtonDelegate.h */,
+				D063013E163CAE4500A404FB /* MGContourView.h */,
+				D063013F163CAE4600A404FB /* MGContourView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		D0630133163CACF700A404FB /* Glyph */ = {
+			isa = PBXGroup;
+			children = (
+				D0C71A16163CB96700EB554D /* MGCurvePoint.h */,
+				D0C71A17163CB96700EB554D /* MGCurvePoint.m */,
+				D0630134163CAD1500A404FB /* MGGlyph.h */,
+				D0630135163CAD1500A404FB /* MGGlyph.m */,
+				D0630137163CAD4400A404FB /* MGContour.h */,
+				D0630138163CAD4400A404FB /* MGContour.m */,
+			);
+			name = Glyph;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +340,11 @@
 				D0630128163CA31100A404FB /* MicroUIDraggableEndpoint.m in Sources */,
 				D063012F163CA34300A404FB /* GLViewController.m in Sources */,
 				D0630132163CA3F300A404FB /* MGGlyphEditorViewController.m in Sources */,
+				D0630136163CAD1500A404FB /* MGGlyph.m in Sources */,
+				D0630139163CAD4400A404FB /* MGContour.m in Sources */,
+				D0630140163CAE4600A404FB /* MGContourView.m in Sources */,
+				D0630146163CAF3500A404FB /* MGQuadraticCurve.m in Sources */,
+				D0C71A18163CB96700EB554D /* MGCurvePoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +463,7 @@
 				D06300F7163CA1F500A404FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

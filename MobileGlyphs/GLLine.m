@@ -36,4 +36,10 @@
     [self updateVertices];
 }
 
+- (void)drawVertices
+{
+    glLineWidth(3.);
+    glDrawArrays(GL_LINE_STRIP, 0, self.numVertices);
+}
+
 @end
