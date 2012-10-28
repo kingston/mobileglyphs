@@ -60,7 +60,10 @@
     
     GLKVector2 *vertices = self.vertices;
     for (int i = 0; i < newNumVertices; i++) {
-        CGPoint newPt = [self linearInterpolateFrom:self.start To:self.end WithT:((i + 0.0)/(newNumVertices - 1.0))];
+        float t = ((float)i) / (newNumVertices - 1.0);
+        CGPoint startTangent = [self linearInterpolateFrom:self.start To:self.tangent WithT:t];
+        CGPoint tangentEnd = [self linearInterpolateFrom:self.tangent To:self.end WithT:t];
+        CGPoint newPt = [self linearInterpolateFrom:startTangent To:tangentEnd WithT:t];
         vertices[i] = GLKVector2Make(newPt.x, newPt.y);
     }
 }
