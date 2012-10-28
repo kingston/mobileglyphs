@@ -16,4 +16,6 @@
     CGPoint dragStartTouchPosition;
 }
 
+- (void)onDragStart;
+
 @end

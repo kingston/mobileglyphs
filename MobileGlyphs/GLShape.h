@@ -30,6 +30,7 @@
 @property(nonatomic, strong, readonly) NSMutableArray *children;
 
 - (void)renderWithContext:(GLGraphicsContext*)context;
+- (void)drawVertices;
 - (void)addChild:(GLShape *)child;
 - (void)setTextureImage:(UIImage *)image;
 

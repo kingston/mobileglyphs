@@ -29,12 +29,18 @@
     return nil;
 }
 
+- (void)onDragStart
+{
+    // Do nothing
+}
+
 - (void)onTouchStart:(UITouch *)touch atPoint:(CGPoint)point
 {
     if (currentTouch != nil) return; // ignore other touches
     currentTouch = [NSValue valueWithNonretainedObject:touch];
     dragStartBoxPosition = self.boundingBox.origin;
     dragStartTouchPosition = point;
+    [self onDragStart];
 }
 
 - (void)onTouchMove:(UITouch *)touch atPoint:(CGPoint)point

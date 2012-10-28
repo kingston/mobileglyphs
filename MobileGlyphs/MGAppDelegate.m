@@ -8,7 +8,7 @@
 
 #import "MGAppDelegate.h"
 
-#import "MGViewController.h"
+#import "MGGlyphEditorViewController.h"
 
 @implementation MGAppDelegate
 
@@ -16,7 +16,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[MGViewController alloc] initWithNibName:@"MGViewController" bundle:nil];
+    //self.viewController = [[MGViewController alloc] initWithNibName:@"MGViewController" bundle:nil];
+    self.viewController = [[MGGlyphEditorViewController alloc] init];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;

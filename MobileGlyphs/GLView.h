@@ -11,7 +11,9 @@
 #import "GLShape.h"
 #import "GLGraphicsContext.h"
 
-@interface GLView : NSObject
+@interface GLView : NSObject {
+    NSMutableArray *shapes;
+}
 
 @property (nonatomic)CGRect boundingBox; // NB: Bounding box is relative to parent view
 @property (nonatomic, weak)GLView *parent;
@@ -51,5 +53,7 @@
 - (CGPoint)getRelativePointFromAbsolutePoint:(CGPoint)point;
 
 - (CGPoint)getAbsolutePointFromRelativePoint:(CGPoint)point;
+
+- (void)onViewLoaded; // called when the view is fully loaded with parents, etc.
 
 @end
