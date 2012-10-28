@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001B6E67163CA81A00A03E61 /* GLCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B6E66163CA81A00A03E61 /* GLCurve.m */; };
 		D06300D6163CA1F500A404FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06300D5163CA1F500A404FB /* UIKit.framework */; };
 		D06300D8163CA1F500A404FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06300D7163CA1F500A404FB /* Foundation.framework */; };
 		D06300DA163CA1F500A404FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06300D9163CA1F500A404FB /* CoreGraphics.framework */; };
@@ -39,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		001B6E65163CA81A00A03E61 /* GLCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCurve.h; sourceTree = "<group>"; };
+		001B6E66163CA81A00A03E61 /* GLCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCurve.m; sourceTree = "<group>"; };
 		D06300D1163CA1F500A404FB /* MobileGlyphs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileGlyphs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06300D5163CA1F500A404FB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D06300D7163CA1F500A404FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -182,6 +185,8 @@
 				D0630100163CA2E600A404FB /* GLLine.m */,
 				D0630101163CA2E600A404FB /* GLQuad.h */,
 				D0630102163CA2E600A404FB /* GLQuad.m */,
+				001B6E65163CA81A00A03E61 /* GLCurve.h */,
+				001B6E66163CA81A00A03E61 /* GLCurve.m */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				D0630127163CA31100A404FB /* MicroUIDraggableView.m in Sources */,
 				D0630128163CA31100A404FB /* MicroUIDraggableEndpoint.m in Sources */,
 				D063012F163CA34300A404FB /* GLViewController.m in Sources */,
+				001B6E67163CA81A00A03E61 /* GLCurve.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +425,7 @@
 				D06300F7163CA1F500A404FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
