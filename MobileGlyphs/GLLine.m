@@ -10,8 +10,18 @@
 
 @implementation GLLine
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _thickness = 3.;
+    }
+    return self;
+}
+
 @synthesize start = _start;
 @synthesize end = _end;
+@synthesize thickness = _thickness;
 
 - (int)numVertices
 {
@@ -38,7 +48,7 @@
 
 - (void)drawVertices
 {
-    glLineWidth(3.);
+    glLineWidth(_thickness);
     glDrawArrays(GL_LINE_STRIP, 0, self.numVertices);
 }
 

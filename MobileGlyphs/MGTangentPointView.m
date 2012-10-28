@@ -31,7 +31,10 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"TangentUpdated" object:_point];
     _point = point;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tangentUpdated) name:@"TangentUpdated" object:_point];
+    if (point) {
+        [self tangentUpdated];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tangentUpdated) name:@"TangentUpdated" object:_point];
+    }
 }
 
 - (void)dealloc

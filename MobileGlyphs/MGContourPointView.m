@@ -39,8 +39,12 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"OnCurveUpdated" object:_point];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"TangentUpdated" object:_point];
     _point = point;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onCurveUpdated) name:@"OnCurveUpdated" object:_point];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tangentUpdated) name:@"TangentUpdated" object:_point];
+    tangentView.point = point;
+    if (point) {
+        [self onCurveUpdated];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onCurveUpdated) name:@"OnCurveUpdated" object:_point];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tangentUpdated) name:@"TangentUpdated" object:_point];
+    }
 }
 
 - (void)dealloc
@@ -68,6 +72,7 @@
     tangentLine = [[GLLine alloc] init];
     tangentLine.start = CGPointMake(0, 0);
     tangentLine.color = GLKVector4Make(0.8, 0.8, 0.8, 1.0);
+    tangentLine.thickness = 1.0;
     [shapes addObject:tangentLine];
     
     [self onCurveUpdated];

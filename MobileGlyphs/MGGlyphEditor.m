@@ -72,21 +72,33 @@
 - (void)deleteCurrentPoint
 {
     if (activePointView != nil) {
-        MGContour *activeContour = activePointView.point.contour;
-        [activeContour deletePoint:activePointView.point];
+        MGCurvePoint *pt = activePointView.point;
+        MGContour *activeContour = pt.contour;
+        [activeContour deletePoint:pt];
+        [activePointView setPoint:nil];
+        [self.subviews removeObject:activePointView];
+        activePointView = nil;
         if (activeContour.points.count == 0) {
-            [_glyph.contours removeObject:activeContour];
             //TODO: Inefficient but works
             MGContourView *viewToRemove;
             for (MGContourView *view in self.subviews) {
-                if (view.contour == activeContour) {
+                if ([view isKindOfClass:[MGContourView class]] && view.contour == activeContour) {
                     viewToRemove = view;
                     break;
                 }
             }
             [self.subviews removeObject:viewToRemove];
+            [_glyph.contours removeObject:activeContour];
+        } else {
+            //TODO: Inefficient but works
+            MGCurvePoint *lastPoint = [activeContour.points lastObject];
+            for (MGContourPointView *view in self.subviews) {
+                if ([view isKindOfClass:[MGContourPointView class]] && view.point == lastPoint) {
+                    [self setActivePointView:view];
+                    break;
+                }
+            }
         }
-        [self.subviews removeObject:activePointView];
     }
 }
 
