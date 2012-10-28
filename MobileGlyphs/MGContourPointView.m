@@ -63,6 +63,23 @@
     tangentLine.end = [self getRelativePointFromAbsolutePoint:_point.tangentPoint];
 }
 
+- (void)onDragStart
+{
+    [[self getGlyphParent] setActivePointView:self];
+    curvePointOffset = CGPointMake(_point.tangentPoint.x - _point.onCurvePoint.x, _point.tangentPoint.y - _point.onCurvePoint.y);
+}
+
+- (CGPoint)dragPosition
+{
+    return _point.onCurvePoint;
+}
+
+- (void)setDragPosition:(CGPoint)dragPosition
+{
+    _point.onCurvePoint = dragPosition;
+    _point.tangentPoint = CGPointMake(_point.onCurvePoint.x + curvePointOffset.x, _point.onCurvePoint.y + curvePointOffset.y);
+}
+
 - (void)onViewLoaded
 {
     circle = [[GLCircle alloc] initWithCenter:CGPointMake(0,0) andRadius:CURVE_POINT_RADIUS];
@@ -100,6 +117,19 @@
     return CGPointDistance(self.point.onCurvePoint, point) < CURVE_POINT_HIT_RADIUS;
 }
 
+- (GLView *)hitTestForTouchAtPoint:(CGPoint)point
+{
+    // Check subviews independently
+    for (GLView *view in [self.subviews reverseObjectEnumerator]) {
+        GLView *targettedView = [view hitTestForTouchAtPoint:point];
+        if (targettedView) return targettedView;
+    }
+    if ([self hitTestForPoint:point]) {
+        return self;
+    }
+    return nil;
+}
+
 - (MGGlyphEditor*)getGlyphParent
 {
     GLView *parent = [self parent];
@@ -108,11 +138,6 @@
         parent = [parent parent];
     }
     return nil;
-}
-
-- (void)onDragStart
-{
-    [[self getGlyphParent] setActivePointView:self];
 }
 
 - (void)onLayoutChanged

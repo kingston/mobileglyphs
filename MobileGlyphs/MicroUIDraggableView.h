@@ -18,4 +18,6 @@
 
 - (void)onDragStart;
 
+@property (nonatomic) CGPoint dragPosition; // the position to drag - by default, set to the bounding box origin
+
 @end
