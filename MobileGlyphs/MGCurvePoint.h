@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class MGContour;
+
 @interface MGCurvePoint : NSObject
 
 @property (nonatomic) CGPoint onCurvePoint;
 @property (nonatomic) CGPoint tangentPoint;
+
+@property (nonatomic, weak) MGContour *contour;
 
 @end

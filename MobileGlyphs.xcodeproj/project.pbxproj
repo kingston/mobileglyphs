@@ -42,6 +42,10 @@
 		D0630140163CAE4600A404FB /* MGContourView.m in Sources */ = {isa = PBXBuildFile; fileRef = D063013F163CAE4600A404FB /* MGContourView.m */; };
 		D0630146163CAF3500A404FB /* MGQuadraticCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = D0630145163CAF3500A404FB /* MGQuadraticCurve.m */; };
 		D0C71A18163CB96700EB554D /* MGCurvePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C71A17163CB96700EB554D /* MGCurvePoint.m */; };
+		D0C71A1B163D27C500EB554D /* MGContourPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C71A1A163D27C500EB554D /* MGContourPointView.m */; };
+		D0C71A22163D345E00EB554D /* MGTangentPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C71A21163D345E00EB554D /* MGTangentPointView.m */; };
+		D0C71A28163D34F600EB554D /* GLCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C71A27163D34F600EB554D /* GLCircle.m */; };
+		D0C71A2B163D391500EB554D /* MGGlyphEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C71A2A163D391400EB554D /* MGGlyphEditor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +113,15 @@
 		D0630145163CAF3500A404FB /* MGQuadraticCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGQuadraticCurve.m; sourceTree = "<group>"; };
 		D0C71A16163CB96700EB554D /* MGCurvePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGCurvePoint.h; sourceTree = "<group>"; };
 		D0C71A17163CB96700EB554D /* MGCurvePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGCurvePoint.m; sourceTree = "<group>"; };
+		D0C71A19163D27C400EB554D /* MGContourPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGContourPointView.h; sourceTree = "<group>"; };
+		D0C71A1A163D27C500EB554D /* MGContourPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGContourPointView.m; sourceTree = "<group>"; };
+		D0C71A1F163D333500EB554D /* GLHelperFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLHelperFunctions.h; sourceTree = "<group>"; };
+		D0C71A20163D345E00EB554D /* MGTangentPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTangentPointView.h; sourceTree = "<group>"; };
+		D0C71A21163D345E00EB554D /* MGTangentPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTangentPointView.m; sourceTree = "<group>"; };
+		D0C71A26163D34F600EB554D /* GLCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCircle.h; sourceTree = "<group>"; };
+		D0C71A27163D34F600EB554D /* GLCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCircle.m; sourceTree = "<group>"; };
+		D0C71A29163D391400EB554D /* MGGlyphEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGGlyphEditor.h; sourceTree = "<group>"; };
+		D0C71A2A163D391400EB554D /* MGGlyphEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGGlyphEditor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +218,9 @@
 				D0630102163CA2E600A404FB /* GLQuad.m */,
 				D0630144163CAF3500A404FB /* MGQuadraticCurve.h */,
 				D0630145163CAF3500A404FB /* MGQuadraticCurve.m */,
+				D0C71A1F163D333500EB554D /* GLHelperFunctions.h */,
+				D0C71A26163D34F600EB554D /* GLCircle.h */,
+				D0C71A27163D34F600EB554D /* GLCircle.m */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -236,6 +252,12 @@
 				D063011E163CA31100A404FB /* MicroUIButtonDelegate.h */,
 				D063013E163CAE4500A404FB /* MGContourView.h */,
 				D063013F163CAE4600A404FB /* MGContourView.m */,
+				D0C71A19163D27C400EB554D /* MGContourPointView.h */,
+				D0C71A1A163D27C500EB554D /* MGContourPointView.m */,
+				D0C71A20163D345E00EB554D /* MGTangentPointView.h */,
+				D0C71A21163D345E00EB554D /* MGTangentPointView.m */,
+				D0C71A29163D391400EB554D /* MGGlyphEditor.h */,
+				D0C71A2A163D391400EB554D /* MGGlyphEditor.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -345,6 +367,10 @@
 				D0630140163CAE4600A404FB /* MGContourView.m in Sources */,
 				D0630146163CAF3500A404FB /* MGQuadraticCurve.m in Sources */,
 				D0C71A18163CB96700EB554D /* MGCurvePoint.m in Sources */,
+				D0C71A1B163D27C500EB554D /* MGContourPointView.m in Sources */,
+				D0C71A22163D345E00EB554D /* MGTangentPointView.m in Sources */,
+				D0C71A28163D34F600EB554D /* GLCircle.m in Sources */,
+				D0C71A2B163D391500EB554D /* MGGlyphEditor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

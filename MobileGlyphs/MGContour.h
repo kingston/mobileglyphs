@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class MGCurvePoint;
+
 @interface MGContour : NSObject
 
 @property (nonatomic, strong) NSMutableArray *points;
+
+- (void)addPoint:(MGCurvePoint*)point;
+
+- (void)deletePoint:(MGCurvePoint *)point;
 
 @end

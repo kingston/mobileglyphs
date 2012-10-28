@@ -10,6 +10,18 @@
 
 @implementation MGCurvePoint
 
-@synthesize onCurvePoint, tangentPoint;
+@synthesize onCurvePoint = _onCurvePoint, tangentPoint = _tangentPoint;
+
+- (void)setOnCurvePoint:(CGPoint)onCurvePoint
+{
+    _onCurvePoint = onCurvePoint;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OnCurveUpdated" object:self];
+}
+
+- (void)setTangentPoint:(CGPoint)tangentPoint
+{
+    _tangentPoint = tangentPoint;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TangentUpdated" object:self];
+}
 
 @end

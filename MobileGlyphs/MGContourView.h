@@ -9,7 +9,11 @@
 #import "GLView.h"
 @class MGContour;
 
-@interface MGContourView : GLView
+@interface MGContourView : GLView {
+    NSMutableArray *shapesCache;
+}
+
+- (id)initWithBoundingBox:(CGRect)box AndContour:(MGContour*)contour;
 
 @property (nonatomic, strong) MGContour *contour;
 

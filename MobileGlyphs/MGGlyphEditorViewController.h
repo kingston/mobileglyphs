@@ -7,13 +7,19 @@
 //
 
 #import "GLViewController.h"
+#import "MicroUIButtonDelegate.h"
 
 @class MicroUIButton;
+@class MGGlyphEditor;
+@class MGGlyph;
 
-@interface MGGlyphEditorViewController : GLViewController {
+@interface MGGlyphEditorViewController : GLViewController<MicroUIButtonDelegate> {
     MicroUIButton *newButton;
     MicroUIButton *convertPointButton;
     MicroUIButton *deleteButton;
+    MGGlyphEditor *editor;
 }
+
+@property (nonatomic, strong) MGGlyph *glyph;
 
 @end

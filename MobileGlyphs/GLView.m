@@ -28,6 +28,7 @@
     if (self) {
         boundingBox = box;
         subviews = [[NSMutableArray alloc] init];
+        shapes = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -84,13 +85,16 @@
 
 - (void)renderToShape:(GLShape *)shape
 {
-    // No shapes to render :)
+    for (GLShape *subShape in shapes) {
+        [shape addChild:subShape];
+    }
 }
 
 - (void)addSubView:(GLView *)view
 {
     view.parent = self;
     [subviews addObject:view];
+    [view onViewLoaded];
 }
 
 - (void)removeAllSubViews
@@ -131,6 +135,11 @@
 - (void)onTouchMove:(UITouch*)touch atPoint:(CGPoint)point
 {
     if (parent != nil) [parent onTouchMove:touch atPoint:point];
+}
+
+- (void)onViewLoaded
+{
+    //
 }
 
 - (CGRect)absoluteBoundingBox
