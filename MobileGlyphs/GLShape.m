@@ -10,7 +10,7 @@
 
 @implementation GLShape
 
-@synthesize parent, children, position, color, useConstantColor, texture;
+@synthesize parent, children, position, color, useConstantColor, texture, isVisible;
 
 -(id)init {
     self = [super init];
@@ -24,6 +24,8 @@
         
         // Center on the origin
         position = GLKVector2Make(0,0);
+        
+        isVisible = YES;
         
         children = [[NSMutableArray alloc] init];
     }
@@ -70,7 +72,7 @@
 
 -(void)renderWithContext:(GLGraphicsContext *)context
 {
-    if ([self numVertices] > 0) {
+    if ([self numVertices] > 0 && isVisible) {
         // TODO: Technically we should share base effect in graphics context, but....
         GLKBaseEffect *effect = [[GLKBaseEffect alloc] init];
         

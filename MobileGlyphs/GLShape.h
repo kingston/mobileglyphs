@@ -23,6 +23,7 @@
 @property(nonatomic) GLKVector4 color;
 @property(nonatomic) BOOL useConstantColor;
 @property(nonatomic, strong) GLKTextureInfo *texture;
+@property(nonatomic) BOOL isVisible;
 
 @property(nonatomic) GLKVector2 position;
 

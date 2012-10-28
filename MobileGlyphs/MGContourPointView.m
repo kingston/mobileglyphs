@@ -66,7 +66,6 @@
 - (void)onViewLoaded
 {
     circle = [[GLCircle alloc] initWithCenter:CGPointMake(0,0) andRadius:CURVE_POINT_RADIUS];
-    circle.color = GLKVector4Make(0.0, 0.0, 0.0, 1.0);
     [shapes addObject:circle];
     
     tangentLine = [[GLLine alloc] init];
@@ -79,6 +78,9 @@
     
     tangentView = [[MGTangentPointView alloc] initWithPoint:_point];
     [self addSubView:tangentView];
+    
+    // Reset is active
+    self.isActive = _isActive;
 }
 
 - (void)setIsActive:(BOOL)isActive
@@ -86,8 +88,10 @@
     _isActive = isActive;
     if (isActive) {
         circle.color = GLKVector4Make(1, 0, 0, 1);
+        tangentLine.isVisible = YES;
     } else {
         circle.color = GLKVector4Make(0, 0, 0, 1);
+        tangentLine.isVisible = NO;
     }
 }
 
