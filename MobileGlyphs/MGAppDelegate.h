@@ -13,7 +13,7 @@
 @interface MGAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) UINavigationController *navController;
 @property (strong, nonatomic) MGGlyphEditorViewController *viewController;
 
 @end

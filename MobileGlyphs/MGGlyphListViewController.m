@@ -8,11 +8,14 @@
 
 #import "MGGlyphListViewController.h"
 
-@interface MGGlyphListViewController ()
+#import "MGGlyphEditorViewController.h"
+#import "MGAddGlyphViewController.h"
+#import "MGAppDelegate.h"
 
-@end
 
 @implementation MGGlyphListViewController
+
+@synthesize glyphs;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -20,6 +23,16 @@
     if (self) {
         // Custom initialization
     }
+    
+    
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                   NSUserDomainMask, YES);
+    NSString *path = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"glyph_list"];
+    glyphs = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if (glyphs == nil){
+        glyphs = [[NSMutableArray alloc] init];
+    }
+    
     return self;
 }
 
@@ -30,8 +43,34 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"New"
+                                   style:UIBarButtonItemStyleBordered
+                                   target:self
+                                   action:@selector(addGlyph)];
+    self.navigationItem.rightBarButtonItem = addButton;
+}
+
+- (void) addGlyph{
+    NSLog(@"Add a new glyph");
+    MGAddGlyphViewController *addController = [[MGAddGlyphViewController alloc] initWithNibName:@"MGAddGlyphViewController" bundle:nil];
+    addController.delegate = self;
+    addController.modalPresentationStyle =  UIModalTransitionStyleCrossDissolve;
+    [self presentModalViewController:addController animated:YES];
+    
+}
+
+- (void) createGlyph: (NSString *) name{
+    [self dismissModalViewControllerAnimated:YES];
+    [glyphs addObject:name];
+    
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"glyph_list"];
+    [NSKeyedArchiver archiveRootObject:glyphs toFile:path];
+
+    [self.tableView reloadData];
+    
+    [self openGlyphEditor:name];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,7 +89,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
+    return [glyphs count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -59,11 +98,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        //UILabel *label = [[UILabel alloc] init];
-        //label.text  = @"Crap";
-        [cell setText:@"Crap"];
     }
-
+    [cell setText:[glyphs objectAtIndex:indexPath.row]];
     return cell;
 }
 
@@ -71,13 +107,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [self openGlyphEditor:[glyphs objectAtIndex:indexPath.row]];
+}
+
+- (void) openGlyphEditor:(NSString *) name{
+    MGAppDelegate *del = (MGAppDelegate *)[UIApplication sharedApplication].delegate;
+    MGGlyphEditorViewController *editorController = [[MGGlyphEditorViewController alloc] init];
+    editorController.title = [@"Edit " stringByAppendingString:name];
+    [del.navController pushViewController:editorController animated:YES];
+    // TODO: Store the Glyph
 }
 
 @end

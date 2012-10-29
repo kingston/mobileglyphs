@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MGGlyphListViewController : UITableViewController
+@interface MGGlyphListViewController : UITableViewController{
+    NSMutableArray *glyphs;
+}
+
+@property (nonatomic, strong) NSMutableArray *glyphs;
+- (void) createGlyph:(NSString *) name;
 
 @end

@@ -13,14 +13,24 @@
 
 @implementation MGAppDelegate
 
+@synthesize navController;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     //self.viewController = [[MGViewController alloc] initWithNibName:@"MGViewController" bundle:nil];
-    self.viewController = [[MGGlyphEditorViewController alloc] init];
-    MGGlyphListViewController *listViewController = [[MGGlyphListViewController alloc] initWithStyle:UITableViewStylePlain];
-    //self.viewController = [[UINavigationController alloc] initWithRootViewController:listViewController];
+    
+    //NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+    //                                                        NSUserDomainMask, YES);
+//    NSString *path = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"glyph_test"];
+//    NSKeyedUnarchiver *unarchiver = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    self.viewController = [[MGGlyphEditorViewController alloc] init];//initWithCoder:unarchiver];
+    
+//    MGGlyphListViewController *listViewController = [[MGGlyphListViewController alloc] initWithStyle:UITableViewStylePlain];
+//    navController = [[UINavigationController alloc] initWithRootViewController:listViewController];
+//    self.viewController = navController;
+    
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;

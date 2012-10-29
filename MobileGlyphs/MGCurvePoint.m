@@ -23,6 +23,22 @@
     return self;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+    // http://stackoverflow.com/questions/448173/encoding-cgpoint-struct-with-nscoder
+    [aCoder encodeCGPoint:_onCurvePoint forKey:@"onCurvePoint"];
+    [aCoder encodeCGPoint:_tangentPoint forKey:@"tangentPoint"];
+    [aCoder encodeBool:_isStraight forKey:@"isStraight"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    if(self = [super init]){
+        _tangentPoint = [aDecoder decodeCGPointForKey:@"tangentPoint"];
+        _onCurvePoint = [aDecoder decodeCGPointForKey:@"onCurvePoint"];
+        _isStraight = [aDecoder decodeBoolForKey:@"isStraight"];
+    }
+    return self;
+}
+
 - (void)setOnCurvePoint:(CGPoint)onCurvePoint
 {
     _onCurvePoint = onCurvePoint;

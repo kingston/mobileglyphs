@@ -10,6 +10,17 @@
 
 @implementation MGGlyph
 
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:contours forKey:CONTOURS_KEY];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    if(self = [super init]){
+        contours = [aDecoder decodeObjectForKey:CONTOURS_KEY];
+    }
+    return self;
+}
+
 - (id)init
 {
     self = [super init];

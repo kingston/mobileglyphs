@@ -10,7 +10,7 @@
 
 @class MGContour;
 
-@interface MGCurvePoint : NSObject
+@interface MGCurvePoint : NSObject <NSCoding>
 
 @property (nonatomic) CGPoint onCurvePoint;
 @property (nonatomic) CGPoint tangentPoint;

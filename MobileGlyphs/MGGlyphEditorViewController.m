@@ -30,7 +30,14 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        _glyph = [[MGGlyph alloc] init];
+        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *path = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"glyph_test"];
+        NSKeyedUnarchiver *unarchiver = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        if (unarchiver != nil){
+            _glyph = unarchiver;
+        }else{
+            _glyph = [[MGGlyph alloc] init];
+        }
     }
     return self;
 }
@@ -59,6 +66,12 @@
         if (activePoint) {
             activePoint.isStraight = !activePoint.isStraight;
         }
+    } else if (sender == saveButton){
+        NSLog(@"Saving this glyph");
+        
+        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *path = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"glyph_test"];
+        [NSKeyedArchiver archiveRootObject:_glyph toFile:path];
     }
 }
 
@@ -85,6 +98,11 @@
     [deleteButton setButtonText:@"Delete Point"];
     [deleteButton setDelegate:self];
     [container addSubView:deleteButton];
+    
+    saveButton = [[MicroUIButton alloc] initWithX:490 AndY:buttonY AndWidth:150 AndHeight:BUTTON_HEIGHT];
+    [saveButton setButtonText:@"Save"];
+    [saveButton setDelegate:self];
+    [container addSubView:saveButton];
 }
 
 @end

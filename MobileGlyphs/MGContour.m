@@ -22,6 +22,18 @@
     return self;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:points forKey:@"points"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    if(self = [super init]){
+        points = [aDecoder decodeObjectForKey:@"points"];
+    }
+    return self;
+}
+
+
 - (void)deletePoint:(MGCurvePoint *)point
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"OnCurveUpdated" object:point];

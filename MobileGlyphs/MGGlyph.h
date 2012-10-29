@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MGGlyph : NSObject
+#define CONTOURS_KEY @"contours"
+
+@interface MGGlyph : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSMutableArray *contours;
 

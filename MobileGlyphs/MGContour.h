@@ -10,7 +10,7 @@
 
 @class MGCurvePoint;
 
-@interface MGContour : NSObject
+@interface MGContour : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSMutableArray *points;
 

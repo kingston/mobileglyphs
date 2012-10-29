@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0003310B163DD9CA00B31742 /* MGGlyphListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0003310A163DD9C900B31742 /* MGGlyphListViewController.m */; };
 		001B6E67163CA81A00A03E61 /* GLCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B6E66163CA81A00A03E61 /* GLCurve.m */; };
+		00F0B9F3163E296800182751 /* MGAddGlyphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F0B9F1163E296800182751 /* MGAddGlyphViewController.m */; };
+		00F0B9F4163E296800182751 /* MGAddGlyphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F0B9F2163E296800182751 /* MGAddGlyphViewController.xib */; };
 		D06300D6163CA1F500A404FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06300D5163CA1F500A404FB /* UIKit.framework */; };
 		D06300D8163CA1F500A404FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06300D7163CA1F500A404FB /* Foundation.framework */; };
 		D06300DA163CA1F500A404FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06300D9163CA1F500A404FB /* CoreGraphics.framework */; };
@@ -56,6 +58,9 @@
 		0003310A163DD9C900B31742 /* MGGlyphListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGGlyphListViewController.m; sourceTree = "<group>"; };
 		001B6E65163CA81A00A03E61 /* GLCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCurve.h; sourceTree = "<group>"; };
 		001B6E66163CA81A00A03E61 /* GLCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCurve.m; sourceTree = "<group>"; };
+		00F0B9F0163E296800182751 /* MGAddGlyphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGAddGlyphViewController.h; sourceTree = "<group>"; };
+		00F0B9F1163E296800182751 /* MGAddGlyphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGAddGlyphViewController.m; sourceTree = "<group>"; };
+		00F0B9F2163E296800182751 /* MGAddGlyphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGAddGlyphViewController.xib; sourceTree = "<group>"; };
 		D06300D1163CA1F500A404FB /* MobileGlyphs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileGlyphs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06300D5163CA1F500A404FB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D06300D7163CA1F500A404FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -180,6 +185,9 @@
 		D06300DB163CA1F500A404FB /* MobileGlyphs */ = {
 			isa = PBXGroup;
 			children = (
+				00F0B9F0163E296800182751 /* MGAddGlyphViewController.h */,
+				00F0B9F1163E296800182751 /* MGAddGlyphViewController.m */,
+				00F0B9F2163E296800182751 /* MGAddGlyphViewController.xib */,
 				D0630133163CACF700A404FB /* Glyph */,
 				D063012D163CA34300A404FB /* GLViewController.h */,
 				D063012E163CA34300A404FB /* GLViewController.m */,
@@ -345,6 +353,7 @@
 				D06300EA163CA1F500A404FB /* Default@2x.png in Resources */,
 				D06300EC163CA1F500A404FB /* Default-568h@2x.png in Resources */,
 				D06300F2163CA1F500A404FB /* MGViewController.xib in Resources */,
+				00F0B9F4163E296800182751 /* MGAddGlyphViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +396,7 @@
 				D0C71A2B163D391500EB554D /* MGGlyphEditor.m in Sources */,
 				0003310B163DD9CA00B31742 /* MGGlyphListViewController.m in Sources */,
 				D0C71A2D163DE74600EB554D /* GLHelperFunctions.m in Sources */,
+				00F0B9F3163E296800182751 /* MGAddGlyphViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
