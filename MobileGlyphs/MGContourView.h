@@ -11,6 +11,7 @@
 
 @interface MGContourView : GLView {
     NSMutableArray *shapesCache;
+    CGPoint dragStart;
 }
 
 - (id)initWithBoundingBox:(CGRect)box AndContour:(MGContour*)contour;

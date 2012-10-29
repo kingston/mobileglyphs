@@ -11,6 +11,7 @@
 #import "MGCurvePoint.h"
 #import "GLLine.h"
 #import "MGQuadraticCurve.h"
+#import "GLHelperFunctions.h"
 
 @implementation MGContourView
 
@@ -70,10 +71,51 @@
     }
 }
 
+- (GLView *)hitTestForTouchAtPoint:(CGPoint)point{
+    if ([self hitTestForPoint:point]){
+        return self;
+    }
+    return nil;
+}
+
 - (BOOL)hitTestForPoint:(CGPoint)point
 {
+    NSLog(@"Checking if contour was touched");
+    // Check subviews independently
+    for (GLShape *view in shapesCache) {
+        if(view.numVertices > 2){
+            for (int i =0; i < view.numVertices; i++){
+                GLKVector2 vertex = view.vertices[i];
+                if(CGPointDistance(CGPointMake(vertex.x, vertex.y), point) < 20){
+                    return YES;
+                }
+            }
+        }
+    }
+    
+    
     // Make us invisible to clicks
     return NO;
+}
+
+- (void)onTouchStart:(UITouch *)touch atPoint:(CGPoint)point
+{
+    dragStart = point;
+}
+
+- (void)onTouchMove:(UITouch *)touch atPoint:(CGPoint)point
+{
+    CGPoint diff = CGPointMake(point.x - dragStart.x, point.y - dragStart.y);
+    dragStart = point;
+    
+    NSMutableArray *points = _contour.points;
+    for (int i = 0; i < points.count; i++) {
+        MGCurvePoint *pt = points[i];
+        pt.tangentPoint = CGPointMake(pt.tangentPoint.x + diff.x, pt.tangentPoint.y + diff.y);
+        pt.onCurvePoint = CGPointMake(pt.onCurvePoint.x + diff.x, pt.onCurvePoint.y + diff.y);
+    }
+    
+    [self invalidateShapesCache];
 }
 
 @end

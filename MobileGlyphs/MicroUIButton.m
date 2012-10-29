@@ -56,7 +56,6 @@
 - (void)onTouchEnd:(UITouch *)touch atPoint:(CGPoint)point
 {
     rect.color = normalColor;
-    //Does this work? I can't tell becuase I can't see the button :(
     if ([self hitTestForPoint:point] && [self.delegate respondsToSelector:@selector(onButtonPress:withSender:)]) {
         [self.delegate onButtonPress:point withSender:self];
     }
