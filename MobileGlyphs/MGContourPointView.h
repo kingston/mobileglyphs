@@ -13,6 +13,7 @@
 
 @interface MGContourPointView : MicroUIDraggableView {
     MGTangentPointView *tangentView;
+    CGPoint curvePointOffset;
 }
 
 @property (nonatomic, strong) MGCurvePoint *point;

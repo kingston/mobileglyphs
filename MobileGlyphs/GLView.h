@@ -21,6 +21,7 @@
 @property (nonatomic)id delegate;
 @property (nonatomic)CGPoint position;
 @property (nonatomic)CGSize size;
+@property (nonatomic)BOOL isVisible;
 
 - (id)initWithX:(float)x AndY:(float)y AndWidth:(float)width AndHeight:(float)height;
 

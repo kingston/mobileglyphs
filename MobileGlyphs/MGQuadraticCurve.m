@@ -7,6 +7,8 @@
 //
 
 #import "MGQuadraticCurve.h"
+#import "GLHelperFunctions.h"
+#import <math.h>
 
 @implementation MGQuadraticCurve
 
@@ -47,9 +49,9 @@
 
 - (void)computeVertices
 {
-    int newNumVertices = 128;
+    // A vaguely rough approximation that I just made up ;p
+    int newNumVertices = sqrtf(CGPointDistance(self.start, self.tangent) + CGPointDistance(self.tangent, self.end));
     
-    //TODO: Dynamically compute the new number of vertices required
     if (newNumVertices != numVerticesRequired) {
         // Delete all vertex/color/texture coordinate data so that they get regenerated on next load
         vertexData = nil;

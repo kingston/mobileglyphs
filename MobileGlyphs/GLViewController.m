@@ -127,14 +127,14 @@
 //Sent to the receiver when a system event (such as a low-memory warning) cancels a touch event.
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"touches cancelled");
+    //NSLog(@"touches cancelled");
     [self touchesEnded:touches withEvent:event];
 }
 
 //Tells the receiver when one or more fingers are raised from a view or window.
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"touches ended");
+    //NSLog(@"touches ended");
     for (UITouch *touch in touches)
     {
         NSValue *key = [NSValue valueWithNonretainedObject:touch];
@@ -148,7 +148,7 @@
 //Tells the receiver when one or more fingers associated with an event move within a view or window.
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"touches moved");
+    //NSLog(@"touches moved");
     for (UITouch *touch in touches)
     {
         NSValue *key = [NSValue valueWithNonretainedObject:touch];

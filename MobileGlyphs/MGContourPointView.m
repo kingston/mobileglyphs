@@ -9,6 +9,7 @@
 #import "MGContourPointView.h"
 
 #import "MGCurvePoint.h"
+#import "MGContour.h"
 #import "GLCircle.h"
 #import "GLLine.h"
 #import "GLHelperFunctions.h"
@@ -38,12 +39,18 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"OnCurveUpdated" object:_point];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"TangentUpdated" object:_point];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"TrackingUpdated" object:_point];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ContinuousUpdated" object:_point];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"StraightUpdated" object:_point];
     _point = point;
     tangentView.point = point;
     if (point) {
         [self onCurveUpdated];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onCurveUpdated) name:@"OnCurveUpdated" object:_point];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tangentUpdated) name:@"TangentUpdated" object:_point];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(continuityChanged) name:@"TrackingUpdated" object:_point];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(continuityChanged) name:@"ContinuousUpdated" object:_point];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(straightUpdated) name:@"StraightUpdated" object:_point];
     }
 }
 
@@ -63,6 +70,39 @@
     tangentLine.end = [self getRelativePointFromAbsolutePoint:_point.tangentPoint];
 }
 
+- (void)continuityChanged
+{
+    if (_point.isTrackingContinuity && !_point.isContinuous) {
+        tangentLine.color = GLKVector4Make(1.0, 0.8, 0.8, 1.0);
+    } else {
+        tangentLine.color = GLKVector4Make(0.8, 0.8, 0.8, 1.0);
+    }
+}
+
+- (void)straightUpdated
+{
+    tangentLine.isVisible = !_point.isStraight;
+    tangentView.isVisible = !_point.isStraight;
+}
+
+- (void)onDragStart
+{
+    [[self getGlyphParent] setActivePointView:self];
+    curvePointOffset = CGPointMake(_point.tangentPoint.x - _point.onCurvePoint.x, _point.tangentPoint.y - _point.onCurvePoint.y);
+}
+
+- (CGPoint)dragPosition
+{
+    return _point.onCurvePoint;
+}
+
+- (void)setDragPosition:(CGPoint)dragPosition
+{
+    _point.onCurvePoint = dragPosition;
+    _point.tangentPoint = CGPointMake(_point.onCurvePoint.x + curvePointOffset.x, _point.onCurvePoint.y + curvePointOffset.y);
+    [_point.contour tangentializePoint:_point];
+}
+
 - (void)onViewLoaded
 {
     circle = [[GLCircle alloc] initWithCenter:CGPointMake(0,0) andRadius:CURVE_POINT_RADIUS];
@@ -70,11 +110,12 @@
     
     tangentLine = [[GLLine alloc] init];
     tangentLine.start = CGPointMake(0, 0);
-    tangentLine.color = GLKVector4Make(0.8, 0.8, 0.8, 1.0);
     tangentLine.thickness = 1.0;
     [shapes addObject:tangentLine];
     
     [self onCurveUpdated];
+    [self continuityChanged];
+    [self straightUpdated];
     
     tangentView = [[MGTangentPointView alloc] initWithPoint:_point];
     [self addSubView:tangentView];
@@ -92,12 +133,26 @@
     } else {
         circle.color = GLKVector4Make(0, 0, 0, 1);
         tangentLine.isVisible = NO;
+        
     }
 }
 
 - (BOOL)hitTestForPoint:(CGPoint)point
 {
     return CGPointDistance(self.point.onCurvePoint, point) < CURVE_POINT_HIT_RADIUS;
+}
+
+- (GLView *)hitTestForTouchAtPoint:(CGPoint)point
+{
+    // Check subviews independently
+    for (GLView *view in [self.subviews reverseObjectEnumerator]) {
+        GLView *targettedView = [view hitTestForTouchAtPoint:point];
+        if (targettedView) return targettedView;
+    }
+    if ([self hitTestForPoint:point]) {
+        return self;
+    }
+    return nil;
 }
 
 - (MGGlyphEditor*)getGlyphParent
@@ -108,11 +163,6 @@
         parent = [parent parent];
     }
     return nil;
-}
-
-- (void)onDragStart
-{
-    [[self getGlyphParent] setActivePointView:self];
 }
 
 - (void)onLayoutChanged

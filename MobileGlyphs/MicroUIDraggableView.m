@@ -29,6 +29,16 @@
     return nil;
 }
 
+- (CGPoint)dragPosition
+{
+    return self.boundingBox.origin;
+}
+
+- (void)setDragPosition:(CGPoint)dragPosition
+{
+    [self setPosition:dragPosition];
+}
+
 - (void)onDragStart
 {
     // Do nothing
@@ -38,7 +48,7 @@
 {
     if (currentTouch != nil) return; // ignore other touches
     currentTouch = [NSValue valueWithNonretainedObject:touch];
-    dragStartBoxPosition = self.boundingBox.origin;
+    dragStartBoxPosition = self.dragPosition;
     dragStartTouchPosition = point;
     [self onDragStart];
 }
@@ -55,7 +65,7 @@
         newPt.y += point.y - dragStartTouchPosition.y;
     }
     
-    [self setPosition:newPt];
+    [self setDragPosition:newPt];
     
     if ([[self delegate] respondsToSelector:@selector(onDragMove:withSender:)]) {
         [[self delegate] onDragMove:newPt withSender:self];

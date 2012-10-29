@@ -18,6 +18,7 @@
 }
 
 @property (nonatomic, strong) MGGlyph *glyph;
+@property (nonatomic, readonly) MGCurvePoint *activePoint;
 
 - (id)initWithBoundingBox:(CGRect)box AndGlyph:(MGGlyph*)glyph;
 

@@ -48,6 +48,7 @@
 		D0C71A22163D345E00EB554D /* MGTangentPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C71A21163D345E00EB554D /* MGTangentPointView.m */; };
 		D0C71A28163D34F600EB554D /* GLCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C71A27163D34F600EB554D /* GLCircle.m */; };
 		D0C71A2B163D391500EB554D /* MGGlyphEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C71A2A163D391400EB554D /* MGGlyphEditor.m */; };
+		D0C71A2D163DE74600EB554D /* GLHelperFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C71A2C163DE74600EB554D /* GLHelperFunctions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +129,7 @@
 		D0C71A27163D34F600EB554D /* GLCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCircle.m; sourceTree = "<group>"; };
 		D0C71A29163D391400EB554D /* MGGlyphEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGGlyphEditor.h; sourceTree = "<group>"; };
 		D0C71A2A163D391400EB554D /* MGGlyphEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGGlyphEditor.m; sourceTree = "<group>"; };
+		D0C71A2C163DE74600EB554D /* GLHelperFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLHelperFunctions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 				D0630144163CAF3500A404FB /* MGQuadraticCurve.h */,
 				D0630145163CAF3500A404FB /* MGQuadraticCurve.m */,
 				D0C71A1F163D333500EB554D /* GLHelperFunctions.h */,
+				D0C71A2C163DE74600EB554D /* GLHelperFunctions.m */,
 				D0C71A26163D34F600EB554D /* GLCircle.h */,
 				D0C71A27163D34F600EB554D /* GLCircle.m */,
 			);
@@ -383,6 +386,7 @@
 				D0C71A28163D34F600EB554D /* GLCircle.m in Sources */,
 				D0C71A2B163D391500EB554D /* MGGlyphEditor.m in Sources */,
 				0003310B163DD9CA00B31742 /* MGGlyphListViewController.m in Sources */,
+				D0C71A2D163DE74600EB554D /* GLHelperFunctions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

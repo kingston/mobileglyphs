@@ -18,4 +18,6 @@
 
 - (void)deletePoint:(MGCurvePoint *)point;
 
+- (void)tangentializePoint:(MGCurvePoint *)point;
+
 @end

@@ -10,7 +10,7 @@
 
 @implementation GLView
 
-@synthesize boundingBox, parent, subviews, delegate;
+@synthesize boundingBox, parent, subviews, delegate, isVisible;
 
 - (id) init
 {
@@ -29,6 +29,7 @@
         boundingBox = box;
         subviews = [[NSMutableArray alloc] init];
         shapes = [[NSMutableArray alloc] init];
+        isVisible = YES;
     }
     return self;
 }
@@ -109,7 +110,7 @@
 
 - (GLView *)hitTestForTouchAtPoint:(CGPoint)point
 {
-    if ([self hitTestForPoint:point]) {
+    if (isVisible && [self hitTestForPoint:point]) {
         // Check if any subviews are in bounding box
         // reversed so that we get top most first
         for (GLView *view in [subviews reverseObjectEnumerator]) {

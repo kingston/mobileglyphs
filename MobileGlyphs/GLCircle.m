@@ -70,7 +70,7 @@
     
     GLKVector2 *vertices = self.vertices;
     
-	float theta = 2 * PI / ((float)newNumVertices);
+	float theta = 2 * PI / ((float)newNumVertices - 1); // -1 to ensure we complete the loop
 	float tangetial_factor = tanf(theta); //calculate the tangential factor
 	float radial_factor = cosf(theta); //calculate the radial factor
 	float x = _radius; //we start at angle = 0

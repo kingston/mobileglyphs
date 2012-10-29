@@ -52,6 +52,7 @@
     pt.onCurvePoint = point;
     pt.tangentPoint = point;
     [activeContour addPoint:pt];
+    [activeContour tangentializePoint:pt];
     
     [self setActivePointView:[[MGContourPointView alloc] initWithPoint:pt]];
     [self addSubView:activePointView];
@@ -61,6 +62,7 @@
 {
     if (currentTouch != touch) return;
     activePointView.point.tangentPoint = point;
+    [activePointView.point.contour tangentializePoint:activePointView.point];
 }
 
 - (void)onTouchEnd:(UITouch *)touch atPoint:(CGPoint)point
@@ -107,6 +109,11 @@
     [activePointView setIsActive:NO];
     activePointView = view;
     [view setIsActive:YES];
+}
+
+- (MGCurvePoint *)activePoint
+{
+    return activePointView.point;
 }
 
 @end
