@@ -22,5 +22,8 @@
 }
 
 @property (nonatomic, strong) MGGlyph *glyph;
+@property (nonatomic, strong) NSString *archiverPath;
+
+- initWithGlyphName:(NSString *) glyphName;
 
 @end

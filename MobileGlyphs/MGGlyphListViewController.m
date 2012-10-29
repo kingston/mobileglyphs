@@ -112,7 +112,7 @@
 
 - (void) openGlyphEditor:(NSString *) name{
     MGAppDelegate *del = (MGAppDelegate *)[UIApplication sharedApplication].delegate;
-    MGGlyphEditorViewController *editorController = [[MGGlyphEditorViewController alloc] init];
+    MGGlyphEditorViewController *editorController = [[MGGlyphEditorViewController alloc] initWithGlyphName:name];
     editorController.title = [@"Edit " stringByAppendingString:name];
     [del.navController pushViewController:editorController animated:YES];
     // TODO: Store the Glyph

@@ -25,11 +25,11 @@
     //                                                        NSUserDomainMask, YES);
 //    NSString *path = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"glyph_test"];
 //    NSKeyedUnarchiver *unarchiver = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-    self.viewController = [[MGGlyphEditorViewController alloc] init];//initWithCoder:unarchiver];
+    //self.viewController = [[MGGlyphEditorViewController alloc] init];//initWithCoder:unarchiver];
     
-//    MGGlyphListViewController *listViewController = [[MGGlyphListViewController alloc] initWithStyle:UITableViewStylePlain];
-//    navController = [[UINavigationController alloc] initWithRootViewController:listViewController];
-//    self.viewController = navController;
+    MGGlyphListViewController *listViewController = [[MGGlyphListViewController alloc] initWithStyle:UITableViewStylePlain];
+    navController = [[UINavigationController alloc] initWithRootViewController:listViewController];
+    self.viewController = navController;
     
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];

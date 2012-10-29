@@ -24,6 +24,7 @@
 @implementation MGGlyphEditorViewController
 
 @synthesize glyph = _glyph;
+@synthesize archiverPath = _archiverPath;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +34,22 @@
         NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *path = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"glyph_test"];
         NSKeyedUnarchiver *unarchiver = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        if (unarchiver != nil){
+            _glyph = unarchiver;
+        }else{
+            _glyph = [[MGGlyph alloc] init];
+        }
+    }
+    return self;
+}
+
+- (id) initWithGlyphName:(NSString *) glyphName{
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        // Custom initialization
+        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        _archiverPath = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:[glyphName stringByAppendingString:@"_glyph"]];
+        NSKeyedUnarchiver *unarchiver = [NSKeyedUnarchiver unarchiveObjectWithFile:_archiverPath];
         if (unarchiver != nil){
             _glyph = unarchiver;
         }else{
@@ -68,10 +85,7 @@
         }
     } else if (sender == saveButton){
         NSLog(@"Saving this glyph");
-        
-        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *path = [[dirPaths objectAtIndex:0] stringByAppendingPathComponent:@"glyph_test"];
-        [NSKeyedArchiver archiveRootObject:_glyph toFile:path];
+        [NSKeyedArchiver archiveRootObject:_glyph toFile:_archiverPath];
     }
 }
 
