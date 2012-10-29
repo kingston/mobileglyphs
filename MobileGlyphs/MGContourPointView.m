@@ -41,6 +41,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"TangentUpdated" object:_point];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"TrackingUpdated" object:_point];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ContinuousUpdated" object:_point];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"StraightUpdated" object:_point];
     _point = point;
     tangentView.point = point;
     if (point) {
@@ -49,6 +50,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tangentUpdated) name:@"TangentUpdated" object:_point];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(continuityChanged) name:@"TrackingUpdated" object:_point];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(continuityChanged) name:@"ContinuousUpdated" object:_point];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(straightUpdated) name:@"StraightUpdated" object:_point];
     }
 }
 
@@ -75,6 +77,12 @@
     } else {
         tangentLine.color = GLKVector4Make(0.8, 0.8, 0.8, 1.0);
     }
+}
+
+- (void)straightUpdated
+{
+    tangentLine.isVisible = !_point.isStraight;
+    tangentView.isVisible = !_point.isStraight;
 }
 
 - (void)onDragStart
@@ -107,6 +115,7 @@
     
     [self onCurveUpdated];
     [self continuityChanged];
+    [self straightUpdated];
     
     tangentView = [[MGTangentPointView alloc] initWithPoint:_point];
     [self addSubView:tangentView];
@@ -124,6 +133,7 @@
     } else {
         circle.color = GLKVector4Make(0, 0, 0, 1);
         tangentLine.isVisible = NO;
+        
     }
 }
 

@@ -18,6 +18,8 @@
 @property (nonatomic) BOOL isTrackingContinuity;
 @property (nonatomic) BOOL isContinuous;
 
+@property (nonatomic) BOOL isStraight;
+
 @property (nonatomic, weak) MGContour *contour;
 
 @end

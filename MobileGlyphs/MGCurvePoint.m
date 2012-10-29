@@ -10,7 +10,7 @@
 
 @implementation MGCurvePoint
 
-@synthesize onCurvePoint = _onCurvePoint, tangentPoint = _tangentPoint, isTrackingContinuity = _isTrackingContinuity, isContinuous = _isContinuous;
+@synthesize onCurvePoint = _onCurvePoint, tangentPoint = _tangentPoint, isTrackingContinuity = _isTrackingContinuity, isContinuous = _isContinuous, isStraight = _isStraight;
 
 - (id)init
 {
@@ -18,6 +18,7 @@
     if (self) {
         _isTrackingContinuity = YES;
         _isContinuous = YES;
+        _isStraight = NO;
     }
     return self;
 }
@@ -44,6 +45,22 @@
 {
     _isContinuous = isContinuous;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ContinuousUpdated" object:self];
+}
+
+- (void)setIsStraight:(BOOL)isStraight
+{
+    if (_isStraight == isStraight) return;
+    _isStraight = isStraight;
+    _isContinuous = NO;
+    if (_isStraight) {
+        self.tangentPoint = _onCurvePoint;
+        _isTrackingContinuity = NO;
+    } else {
+        // Arbitrarily place tangent
+        self.tangentPoint = CGPointMake(_onCurvePoint.x, _onCurvePoint.y + 100);
+        _isTrackingContinuity = YES;
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"StraightUpdated" object:self];
 }
 
 @end

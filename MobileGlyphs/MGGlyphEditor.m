@@ -111,4 +111,9 @@
     [view setIsActive:YES];
 }
 
+- (MGCurvePoint *)activePoint
+{
+    return activePointView.point;
+}
+
 @end

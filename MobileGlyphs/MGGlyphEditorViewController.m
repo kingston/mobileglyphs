@@ -53,6 +53,12 @@
         [editor setActivePointView:nil];
     } else if (sender == deleteButton) {
         [editor deleteCurrentPoint];
+    } else if (sender == convertPointButton) {
+        // Toggle straightness of active point
+        MGCurvePoint *activePoint = [editor activePoint];
+        if (activePoint) {
+            activePoint.isStraight = !activePoint.isStraight;
+        }
     }
 }
 

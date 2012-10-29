@@ -52,8 +52,8 @@
     
     MGCurvePoint *nextNextPoint = (index + 2 >= points.count) ? nil : [points objectAtIndex:index + 2];
 
-    if (prevPoint) [self stretchBackInterceptor:point ToDestination:prevPoint];
-    if (nextPoint && nextNextPoint) [self stretchForwardInterceptor:point ToDestination:nextPoint AndNextNext:nextNextPoint];
+    if (point.isTrackingContinuity && prevPoint) [self stretchBackInterceptor:point ToDestination:prevPoint];
+    if (nextPoint && nextPoint.isTrackingContinuity && nextNextPoint) [self stretchForwardInterceptor:point ToDestination:nextPoint AndNextNext:nextNextPoint];
 }
 
 - (void)stretchBackInterceptor:(MGCurvePoint*)source ToDestination:(MGCurvePoint*)destination
