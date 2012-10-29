@@ -17,6 +17,7 @@
     MicroUIButton *newButton;
     MicroUIButton *convertPointButton;
     MicroUIButton *deleteButton;
+    MicroUIButton *deleteContourButton;
     MicroUIButton *saveButton;
     MGGlyphEditor *editor;
 }

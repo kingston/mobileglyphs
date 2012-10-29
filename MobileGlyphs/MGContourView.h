@@ -15,6 +15,7 @@
 }
 
 - (id)initWithBoundingBox:(CGRect)box AndContour:(MGContour*)contour;
+- (void)invalidateShapesCache;
 
 @property (nonatomic, strong) MGContour *contour;
 

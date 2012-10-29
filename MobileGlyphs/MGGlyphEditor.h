@@ -25,5 +25,6 @@
 - (void)setActivePointView:(MGContourPointView*)view;
 
 - (void)deleteCurrentPoint;
+- (void)deleteLastContour;
 
 @end

@@ -77,6 +77,8 @@
         [editor setActivePointView:nil];
     } else if (sender == deleteButton) {
         [editor deleteCurrentPoint];
+    } else if (sender == deleteContourButton){
+        [editor deleteLastContour];
     } else if (sender == convertPointButton) {
         // Toggle straightness of active point
         MGCurvePoint *activePoint = [editor activePoint];
@@ -113,7 +115,12 @@
     [deleteButton setDelegate:self];
     [container addSubView:deleteButton];
     
-    saveButton = [[MicroUIButton alloc] initWithX:490 AndY:buttonY AndWidth:150 AndHeight:BUTTON_HEIGHT];
+    deleteContourButton = [[MicroUIButton alloc] initWithX:490 AndY:buttonY AndWidth:150 AndHeight:BUTTON_HEIGHT];
+    [deleteContourButton setButtonText:@"Delete Last Contour"];
+    [deleteContourButton setDelegate:self];
+    [container addSubView:deleteContourButton];
+    
+    saveButton = [[MicroUIButton alloc] initWithX:650 AndY:buttonY AndWidth:150 AndHeight:BUTTON_HEIGHT];
     [saveButton setButtonText:@"Save"];
     [saveButton setDelegate:self];
     [container addSubView:saveButton];
