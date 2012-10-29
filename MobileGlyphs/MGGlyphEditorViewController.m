@@ -79,27 +79,6 @@
     [deleteButton setButtonText:@"Delete Point"];
     [deleteButton setDelegate:self];
     [container addSubView:deleteButton];
-    
-    //TESTING: Draw sample bezier curve
-    MGContour *contour = [[MGContour alloc] init];
-    MGCurvePoint *pt = [[MGCurvePoint alloc] init];
-    pt.onCurvePoint = CGPointMake(100, 100);
-    pt.tangentPoint = CGPointMake(200, 200);
-    [contour.points addObject:pt];
-    
-    pt = [[MGCurvePoint alloc] init];
-    pt.onCurvePoint = CGPointMake(300, 200);
-    pt.tangentPoint = CGPointMake(300, 200);
-    [contour.points addObject:pt];
-    
-    pt = [[MGCurvePoint alloc] init];
-    pt.onCurvePoint = CGPointMake(400, 400);
-    pt.tangentPoint = CGPointMake(500, 500);
-    [contour.points addObject:pt];
-    
-    MGContourView *contourView = [[MGContourView alloc] initWithX:0 AndY:0 AndWidth:container.size.width AndHeight:container.size.height];
-    contourView.contour = contour;
-    [container addSubView:contourView];
 }
 
 @end
