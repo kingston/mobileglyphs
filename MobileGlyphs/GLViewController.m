@@ -29,6 +29,8 @@
     [EAGLContext setCurrentContext:context];
     
     GLKView *view = (GLKView*)[self view];
+    // TODO: Figure out exact height of the nav bar.
+    [view setFrame:CGRectMake(0, 0, view.bounds.size.width, view.bounds.size.height - 50)];
     [view setContext:context];
     
     graphicsContext = [[GLGraphicsContext alloc] init];
