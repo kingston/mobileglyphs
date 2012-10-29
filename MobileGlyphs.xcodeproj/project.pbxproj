@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0003310B163DD9CA00B31742 /* MGGlyphListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0003310A163DD9C900B31742 /* MGGlyphListViewController.m */; };
 		001B6E67163CA81A00A03E61 /* GLCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B6E66163CA81A00A03E61 /* GLCurve.m */; };
 		D06300D6163CA1F500A404FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06300D5163CA1F500A404FB /* UIKit.framework */; };
 		D06300D8163CA1F500A404FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06300D7163CA1F500A404FB /* Foundation.framework */; };
@@ -50,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00033109163DD9C900B31742 /* MGGlyphListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGGlyphListViewController.h; sourceTree = "<group>"; };
+		0003310A163DD9C900B31742 /* MGGlyphListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGGlyphListViewController.m; sourceTree = "<group>"; };
 		001B6E65163CA81A00A03E61 /* GLCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCurve.h; sourceTree = "<group>"; };
 		001B6E66163CA81A00A03E61 /* GLCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCurve.m; sourceTree = "<group>"; };
 		D06300D1163CA1F500A404FB /* MobileGlyphs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileGlyphs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +191,8 @@
 				D06300DC163CA1F500A404FB /* Supporting Files */,
 				D0630130163CA3F300A404FB /* MGGlyphEditorViewController.h */,
 				D0630131163CA3F300A404FB /* MGGlyphEditorViewController.m */,
+				00033109163DD9C900B31742 /* MGGlyphListViewController.h */,
+				0003310A163DD9C900B31742 /* MGGlyphListViewController.m */,
 			);
 			path = MobileGlyphs;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				D0C71A22163D345E00EB554D /* MGTangentPointView.m in Sources */,
 				D0C71A28163D34F600EB554D /* GLCircle.m in Sources */,
 				D0C71A2B163D391500EB554D /* MGGlyphEditor.m in Sources */,
+				0003310B163DD9CA00B31742 /* MGGlyphListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

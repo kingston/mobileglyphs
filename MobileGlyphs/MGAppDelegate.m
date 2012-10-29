@@ -9,6 +9,7 @@
 #import "MGAppDelegate.h"
 
 #import "MGGlyphEditorViewController.h"
+#import "MGGlyphListViewController.h"
 
 @implementation MGAppDelegate
 
@@ -18,6 +19,8 @@
     // Override point for customization after application launch.
     //self.viewController = [[MGViewController alloc] initWithNibName:@"MGViewController" bundle:nil];
     self.viewController = [[MGGlyphEditorViewController alloc] init];
+    MGGlyphListViewController *listViewController = [[MGGlyphListViewController alloc] initWithStyle:UITableViewStylePlain];
+    //self.viewController = [[UINavigationController alloc] initWithRootViewController:listViewController];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
