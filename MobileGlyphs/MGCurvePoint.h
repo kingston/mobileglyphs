@@ -15,6 +15,9 @@
 @property (nonatomic) CGPoint onCurvePoint;
 @property (nonatomic) CGPoint tangentPoint;
 
+@property (nonatomic) BOOL isTrackingContinuity;
+@property (nonatomic) BOOL isContinuous;
+
 @property (nonatomic, weak) MGContour *contour;
 
 @end

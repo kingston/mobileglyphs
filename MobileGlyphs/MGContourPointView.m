@@ -9,6 +9,7 @@
 #import "MGContourPointView.h"
 
 #import "MGCurvePoint.h"
+#import "MGContour.h"
 #import "GLCircle.h"
 #import "GLLine.h"
 #import "GLHelperFunctions.h"
@@ -38,12 +39,16 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"OnCurveUpdated" object:_point];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"TangentUpdated" object:_point];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"TrackingUpdated" object:_point];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ContinuousUpdated" object:_point];
     _point = point;
     tangentView.point = point;
     if (point) {
         [self onCurveUpdated];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onCurveUpdated) name:@"OnCurveUpdated" object:_point];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tangentUpdated) name:@"TangentUpdated" object:_point];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(continuityChanged) name:@"TrackingUpdated" object:_point];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(continuityChanged) name:@"ContinuousUpdated" object:_point];
     }
 }
 
@@ -63,6 +68,15 @@
     tangentLine.end = [self getRelativePointFromAbsolutePoint:_point.tangentPoint];
 }
 
+- (void)continuityChanged
+{
+    if (_point.isTrackingContinuity && !_point.isContinuous) {
+        tangentLine.color = GLKVector4Make(1.0, 0.8, 0.8, 1.0);
+    } else {
+        tangentLine.color = GLKVector4Make(0.8, 0.8, 0.8, 1.0);
+    }
+}
+
 - (void)onDragStart
 {
     [[self getGlyphParent] setActivePointView:self];
@@ -78,6 +92,7 @@
 {
     _point.onCurvePoint = dragPosition;
     _point.tangentPoint = CGPointMake(_point.onCurvePoint.x + curvePointOffset.x, _point.onCurvePoint.y + curvePointOffset.y);
+    [_point.contour tangentializePoint:_point];
 }
 
 - (void)onViewLoaded
@@ -87,11 +102,11 @@
     
     tangentLine = [[GLLine alloc] init];
     tangentLine.start = CGPointMake(0, 0);
-    tangentLine.color = GLKVector4Make(0.8, 0.8, 0.8, 1.0);
     tangentLine.thickness = 1.0;
     [shapes addObject:tangentLine];
     
     [self onCurveUpdated];
+    [self continuityChanged];
     
     tangentView = [[MGTangentPointView alloc] initWithPoint:_point];
     [self addSubView:tangentView];

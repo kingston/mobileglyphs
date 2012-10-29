@@ -8,6 +8,7 @@
 
 #import "MGTangentPointView.h"
 
+#import "MGContour.h"
 #import "MGCurvePoint.h"
 #import "GLCircle.h"
 #import "GLHelperFunctions.h"
@@ -65,6 +66,9 @@
 - (void)setDragPosition:(CGPoint)dragPosition
 {
     _point.tangentPoint = dragPosition;
+    if (_point.isTrackingContinuity) {
+        [_point.contour tangentializePoint:_point];
+    }
 }
 
 - (void)dealloc
