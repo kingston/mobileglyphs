@@ -113,12 +113,12 @@
     tangentLine.thickness = 1.0;
     [shapes addObject:tangentLine];
     
+    tangentView = [[MGTangentPointView alloc] initWithPoint:_point];
+    [self addSubView:tangentView];
+    
     [self onCurveUpdated];
     [self continuityChanged];
     [self straightUpdated];
-    
-    tangentView = [[MGTangentPointView alloc] initWithPoint:_point];
-    [self addSubView:tangentView];
     
     // Reset is active
     self.isActive = _isActive;
