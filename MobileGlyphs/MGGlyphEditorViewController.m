@@ -116,7 +116,7 @@
     [container addSubView:deleteButton];
     
     deleteContourButton = [[MicroUIButton alloc] initWithX:490 AndY:buttonY AndWidth:150 AndHeight:BUTTON_HEIGHT];
-    [deleteContourButton setButtonText:@"Delete Last Contour"];
+    [deleteContourButton setButtonText:@"Delete Contour"];
     [deleteContourButton setDelegate:self];
     [container addSubView:deleteContourButton];
     

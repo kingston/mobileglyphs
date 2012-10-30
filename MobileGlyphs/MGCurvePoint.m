@@ -28,6 +28,7 @@
     [aCoder encodeCGPoint:_onCurvePoint forKey:@"onCurvePoint"];
     [aCoder encodeCGPoint:_tangentPoint forKey:@"tangentPoint"];
     [aCoder encodeBool:_isStraight forKey:@"isStraight"];
+    [aCoder encodeObject:_contour forKey:@"contour"];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
@@ -35,6 +36,7 @@
         _tangentPoint = [aDecoder decodeCGPointForKey:@"tangentPoint"];
         _onCurvePoint = [aDecoder decodeCGPointForKey:@"onCurvePoint"];
         _isStraight = [aDecoder decodeBoolForKey:@"isStraight"];
+        _contour = [aDecoder decodeObjectForKey:@"contour"];
     }
     return self;
 }

@@ -105,40 +105,37 @@
 }
 
 - (void)deleteLastContour{
-    // TODO: Wrong if activePointView is not the current contour
-    [activePointView setIsActive:NO];
-    activePointView = nil;
+    if (activePointView == nil) return;
     
-    MGContour *lastContour = [_glyph.contours lastObject];
-    MGContourView *viewToRemove;
-    // MGContourPointView
-    [_glyph.contours removeObject:lastContour];
-    for (MGContourView *view in self.subviews) {
-        if ([view isKindOfClass:[MGContourView class]] && view.contour == lastContour) {
-            viewToRemove = view;
-            break;
-        }
-        
-
-    }
+    MGContour *activeContour = [self.activePoint contour];
     
-    NSMutableArray *viewsToRemove;
+    // Unselect active one
+    [self setActivePointView:nil];
+    
+    NSMutableArray *viewsToRemove = [[NSMutableArray alloc] init];
+    
     for (MGContourPointView *view in self.subviews) {
-        if ([view isKindOfClass:[MGContourPointView class]] && view.point.contour == lastContour){
-            NSLog(@"MGContourPointView !!!");
+        if ([view isKindOfClass:[MGContourPointView class]] && view.point.contour == activeContour){
             [viewsToRemove addObject:view];
         }
     }
     
     for (MGContourPointView *view in viewsToRemove){
-        [lastContour deletePoint:view.point];
-        [view setPoint:nil];
         [self.subviews removeObject:view];
     }
     
-    [viewToRemove invalidateShapesCache];
-
+    MGContourView *viewToRemove;
+    // MGContourPointView
+    for (MGContourView *view in self.subviews) {
+        if ([view isKindOfClass:[MGContourView class]] && view.contour == activeContour) {
+            viewToRemove = view;
+            break;
+        }
+    }
     [self.subviews removeObject:viewToRemove];
+    
+    // Delete the contour
+    [_glyph.contours removeObject:activeContour];
 }
 
 - (void)setActivePointView:(MGContourPointView *)view
