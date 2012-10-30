@@ -105,6 +105,8 @@
 
 - (void)onViewLoaded
 {
+    [self onCurveUpdated];
+    
     circle = [[GLCircle alloc] initWithCenter:CGPointMake(0,0) andRadius:CURVE_POINT_RADIUS];
     [shapes addObject:circle];
     
@@ -116,7 +118,6 @@
     tangentView = [[MGTangentPointView alloc] initWithPoint:_point];
     [self addSubView:tangentView];
     
-    [self onCurveUpdated];
     [self continuityChanged];
     [self straightUpdated];
     
