@@ -29,6 +29,9 @@
 -(id)initWithCoder:(NSCoder *)aDecoder{
     if(self = [super init]){
         points = [aDecoder decodeObjectForKey:@"points"];
+        for (MGCurvePoint *pt in points) {
+            [self setupObserversForPoint:pt];
+        }
     }
     return self;
 }
@@ -42,11 +45,16 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PointDeleted" object:self];
 }
 
+- (void)setupObserversForPoint:(MGCurvePoint*)point
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pointUpdated) name:@"OnCurveUpdated" object:point];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pointUpdated) name:@"TangentUpdated" object:point];
+}
+
 - (void)addPoint:(MGCurvePoint *)point
 {
     point.contour = self;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pointUpdated) name:@"OnCurveUpdated" object:point];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pointUpdated) name:@"TangentUpdated" object:point];
+    [self setupObserversForPoint:point];
     [points addObject:point];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PointAdded" object:self];
 }

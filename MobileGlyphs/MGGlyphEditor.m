@@ -69,6 +69,10 @@
 {
     if (currentTouch != touch) return;
     currentTouch = nil;
+    
+    if (CGPointEqualToPoint(activePointView.point.tangentPoint, activePointView.point.onCurvePoint)) {
+        activePointView.point.isStraight = YES;
+    }
 }
 
 - (void)deleteCurrentPoint
