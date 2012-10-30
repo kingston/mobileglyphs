@@ -78,6 +78,28 @@
     return nil;
 }
 
+- (float)squareOfNumber:(float)x
+{
+    return (x * x);
+}
+
+- (float)distanceBetweenPoint:(CGPoint)v AndPoint:(CGPoint)w
+{
+    return ([self squareOfNumber:(v.x - w.x)] + [self squareOfNumber:(v.y - w.y)]);
+    //return (sqr(v.x - w.x) + sqr(v.y - w.y));
+}
+
+- (float)distanceFromSegmentStart:(CGPoint)startPoint AndSegmentEnd:(CGPoint)endPoint ToPoint:(CGPoint)testPoint
+{
+    float l2 = [self distanceBetweenPoint:startPoint AndPoint:endPoint];
+    if (l2 == 0.0) return [self distanceBetweenPoint:testPoint AndPoint:startPoint];
+    float t = ((testPoint.x - startPoint.x) * (endPoint.x - startPoint.x) + (testPoint.y - startPoint.y) * (endPoint.y - startPoint.y)) / l2;
+    if (t < 0) return [self distanceBetweenPoint:testPoint AndPoint:startPoint];
+    if (t > 1) return [self distanceBetweenPoint:testPoint AndPoint:endPoint];
+    CGPoint projection = CGPointMake(startPoint.x + t * (endPoint.x - startPoint.x), startPoint.y + t * (endPoint.y - startPoint.y));
+    return [self distanceBetweenPoint:testPoint AndPoint:projection];
+}
+
 - (BOOL)hitTestForPoint:(CGPoint)point
 {
     NSLog(@"Checking if contour was touched");
@@ -90,6 +112,9 @@
                     return YES;
                 }
             }
+        } else if ([view isKindOfClass:[GLLine class]]) {
+            GLLine *line = (GLLine*)view;
+            if ([self distanceFromSegmentStart:line.start AndSegmentEnd:line.end ToPoint:point] < 20) return YES;
         }
     }
     
